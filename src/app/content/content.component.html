@@ -1,0 +1,22 @@
+<app-header (menuItem)="onNavigate($event)"></app-header>
+<div class="container">
+  <div class="row my-6">
+    <div class="col-lg-6">
+      <img class="img-fluid rounded img-responsive my-2" [src]="cardContent.imagePath">
+    </div>
+    <app-scroll-page *ngIf="loadedMenu==='contact'; else template">
+    </app-scroll-page>
+    <ng-template #template>
+      <div class="col-lg-6" style="alignment: center">
+        <h1>{{ cardContent.head }}</h1>
+        <p style="max-width: available; text-align: justify">{{cardContent.about}}</p>
+      </div>
+    </ng-template>
+  </div>
+  <!-- <div class="card text-white bg-primary my-4 text-center">
+    <div class="card-body">
+      <p class="text-white m-0">Front-end może nie jest moją mocną stroną, ale się staram. Chce się uczyć! Poszukuję: Pracy || Stażu || Praktyk </p>
+    </div>
+  </div> -->
+  <app-cards (cardSelection)="onSelection($event)"></app-cards>
+</div>
